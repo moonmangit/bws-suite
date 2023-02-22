@@ -15,4 +15,17 @@
   padding: 0;
   box-sizing: border-box;
   color: inherit;
+  transition: all 0.25s ease;
 }
+
+body {
+  background-color: rgba(black, 0.1);
+}
+
+//reset
+@import "./reset.scss";
+
+//components
+@import "./component/button";
+@import "./component/input-group";
+@import "./component/input";

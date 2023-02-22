@@ -1,0 +1,13 @@
+.input {
+  background-color: rgba(black, 0.05);
+  border: 1px solid transparent;
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  outline: none;
+  font-weight: bold;
+  &:focus,
+  &:active {
+    background-color: rgba($accent-1, 0.05);
+    border: 1px solid $accent-1;
+  }
+}

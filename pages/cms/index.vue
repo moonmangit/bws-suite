@@ -1,9 +1,11 @@
 <template>
-  <div>index page</div>
+  <div>page cms index</div>
 </template>
 
 <script>
-export default {};
+export default {
+  layout: "cms",
+};
 </script>
 
 <style lang="scss" scoped></style>

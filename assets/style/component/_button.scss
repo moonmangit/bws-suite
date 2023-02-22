@@ -1,0 +1,32 @@
+.button {
+  $this-accent: $accent-1;
+
+  padding: 0.5rem 0.7rem;
+  border-radius: 5px;
+  text-transform: capitalize;
+  font-weight: bold;
+
+  background-color: $this-accent;
+  color: white;
+  &:hover,
+  &:active {
+    background-color: darken($this-accent, 10);
+  }
+  @mixin theme($theme-name, $main-color: $accent-1) {
+    &--theme-#{$theme-name} {
+      background-color: $main-color;
+      color: white;
+      &:hover,
+      &:active {
+        background-color: darken($main-color, 10);
+      }
+    }
+  }
+  @include theme("danger", $danger);
+  @include theme("success", $success);
+  @include theme("warning", $warning);
+
+  &--icon {
+    background-color: transparent;
+  }
+}
