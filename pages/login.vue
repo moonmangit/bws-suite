@@ -53,7 +53,7 @@ export default {
           email: this.form.email,
           password: this.form.password,
         });
-        this.$router.push("/cms/");
+        this.$router.push("/cms");
         alert("complete");
       } catch (error) {
         alert("error");

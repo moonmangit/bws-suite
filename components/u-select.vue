@@ -39,10 +39,10 @@ export default {
     },
     inputProps: {
       type: Object,
-      default: {
+      default: () => ({
         type: "text",
         required: true,
-      },
+      }),
     },
     options: {
       type: Array,
@@ -74,6 +74,11 @@ export default {
   watch: {
     content(value) {
       this.$emit("input", value);
+    },
+    value(value) {
+      if (value !== this.content) {
+        this.content = value;
+      }
     },
   },
 };

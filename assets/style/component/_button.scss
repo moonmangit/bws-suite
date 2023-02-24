@@ -12,6 +12,10 @@
   &:active {
     background-color: darken($this-accent, 10);
   }
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
   @mixin theme($theme-name, $main-color: $accent-1) {
     &--theme-#{$theme-name} {
       background-color: $main-color;

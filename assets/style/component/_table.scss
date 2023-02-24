@@ -1,0 +1,33 @@
+.table-container {
+  width: 100%;
+  overflow: hidden;
+  background-color: white;
+  overflow: scroll;
+  border-radius: 10px;
+
+  table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    th,
+    td {
+      padding: 0.7rem 1rem;
+    }
+
+    thead {
+      th {
+      }
+    }
+    tbody {
+      tr {
+        cursor: pointer;
+        &:hover {
+          background-color: rgba($accent-1, 0.1);
+        }
+
+        td {
+        }
+      }
+    }
+  }
+}

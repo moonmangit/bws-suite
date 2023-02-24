@@ -21,7 +21,9 @@
     </main>
     <hr />
     <footer class="u-form__footer">
-      <slot name="footer"><button class="button">confirm</button></slot>
+      <slot name="footer">
+        <button class="button">confirm</button>
+      </slot>
     </footer>
   </form>
 </template>
@@ -74,6 +76,7 @@ export default {
     }
   }
   &__main {
+    flex: 1;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;

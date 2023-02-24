@@ -1,0 +1,248 @@
+#layout-cms {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: grid;
+  grid-template-areas:
+    "profile top-nav top-nav"
+    "side-nav page about";
+  grid-template-rows: 4rem 1fr;
+  grid-template-columns: 15rem 1fr max-content;
+  *[data-tips] {
+    &::after {
+      display: none;
+    }
+  }
+
+  //side
+  .profile {
+    grid-area: profile;
+    background-color: $black;
+    display: flex;
+    align-items: stretch;
+    gap: 0.25rem;
+    color: white;
+    text-transform: capitalize;
+
+    &__image {
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid $accent-1;
+    }
+    &__detail {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 0.25rem;
+      .name {
+      }
+      .role {
+        background-color: $accent-1;
+        width: max-content;
+        padding: 0.25rem 0.5rem;
+        border-radius: 5px;
+      }
+    }
+    &__control {
+      display: flex;
+      button {
+        padding-inline: 1rem;
+        color: $accent-1;
+      }
+    }
+  }
+  .side-nav {
+    grid-area: side-nav;
+    background-color: lighten($black, 5);
+    display: flex;
+    flex-direction: column;
+    font-weight: normal;
+    &__links {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      color: white;
+      margin-block: 0.5rem;
+      label {
+        display: flex;
+        align-items: center;
+        color: rgba(white, 0.5);
+        gap: 0.5rem;
+        hr {
+          flex: 1;
+          background-color: rgba(white, 0.1);
+        }
+      }
+      a {
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        text-transform: capitalize;
+        &:hover {
+          background-color: rgba(white, 0.1);
+        }
+      }
+    }
+    &__footer {
+      background-color: $black;
+      button[for="logout"] {
+        margin-inline: auto;
+      }
+    }
+  }
+  .profile,
+  .side-nav__links,
+  .side-nav__footer {
+    padding: 0.5rem 1rem;
+  }
+
+  //top
+  .top-nav,
+  .page {
+    padding-inline: min(2rem, 5%);
+  }
+  .top-nav {
+    grid-area: top-nav;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    gap: 0.5rem;
+    font-weight: normal;
+    .page-icon {
+      font-size: 2rem;
+    }
+    .page-title {
+      text-transform: capitalize;
+    }
+  }
+  .page {
+    grid-area: page;
+    padding-block: 1rem;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
+  //about
+  .about {
+    grid-area: about;
+    background-color: $accent-1;
+    position: relative;
+    color: white;
+    padding: 0.5rem 0.7rem;
+    button[for="toggle"] {
+      position: absolute;
+      left: 0;
+      bottom: 5rem;
+      transform: translateX(-100%);
+      border-radius: 5px 0 0 5px;
+    }
+    hr {
+      background-color: white;
+    }
+    .about {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      max-width: 15rem;
+      white-space: nowrap;
+      text-overflow: clip;
+      .title {
+        font-size: 1.25rem;
+        font-weight: bold;
+      }
+      .detail {
+      }
+    }
+  }
+
+  //state
+  &.side-minimized {
+    grid-template-columns: 4rem 1fr max-content;
+    *[data-tips] {
+      &::after {
+        display: initial;
+      }
+    }
+    .profile {
+      gap: 0;
+      padding-inline: 0;
+      &__image,
+      &__detail {
+        width: 0;
+        overflow-x: hidden;
+        margin-block: 0;
+        padding-inline: 0;
+        border: none;
+        opacity: 0;
+        gap: 0;
+      }
+      &__detail {
+        flex: 0;
+      }
+      &__control {
+        width: 100%;
+        justify-content: center;
+        button {
+          width: 100%;
+          padding: 0;
+          justify-content: center;
+        }
+      }
+    }
+    .side-nav {
+      &__links {
+        padding-inline: 0.5rem;
+        label,
+        a {
+          padding-inline: 0;
+          width: 100%;
+          justify-content: center;
+          gap: 0;
+        }
+        label .text {
+          width: 0;
+          overflow: hidden;
+        }
+        a .text {
+          width: 0;
+          overflow: hidden;
+          opacity: 0;
+        }
+      }
+      &__footer {
+        padding-inline: 0;
+        button[for="logout"] {
+          padding-inline: 0.5rem;
+          .text {
+            width: 0;
+            overflow: hidden;
+          }
+        }
+      }
+    }
+  }
+  &.about-minimized {
+    > .about {
+      padding-inline: 0;
+      > .about {
+        padding-inline: 0;
+        max-width: 0;
+      }
+    }
+  }
+}
+
+// layout utilities
+#layout-cms {
+  .editor-modal {
+    .u-form {
+      width: min(40rem, 90vw);
+      min-height: 30rem;
+      max-height: 80vh;
+    }
+  }
+}

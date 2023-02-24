@@ -20,6 +20,7 @@
 
 body {
   background-color: rgba(black, 0.1);
+  color: $black;
 }
 
 //reset
@@ -29,3 +30,9 @@ body {
 @import "./component/button";
 @import "./component/input-group";
 @import "./component/input";
+@import "./component/tips";
+@import "./component/card";
+@import "./component/table";
+
+//layout
+@import "./layout/cms.scss";

@@ -1,5 +1,5 @@
 <template>
-  <span class="material-icons-sharp">
+  <span class="material-icons-sharp u-icon">
     <slot />
   </span>
 </template>
